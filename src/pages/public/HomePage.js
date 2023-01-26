@@ -21,20 +21,7 @@ export default function HomePage() {
       <main>
          <Header />
          <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-         <div className="flex justify-center items-center">
-            <section className="bg-neutral-500 p-4 w-[45%] m-8 rounded-xl flex justify-center items-center flex-col">
-               <h2 className="font-bold text-2xl text-white">Todo List</h2>
-               {allTodo.map((item, i) => (
-                  <TodoList key={i} todo={item.todo} />
-               ))}
-            </section>
-            <section className="bg-neutral-500 p-4 w-[45%] m-8 rounded-xl flex justify-center items-center flex-col">
-               <h2 className="font-bold text-2xl text-white">Todo's Completed</h2>
-               {allTodo.map((item, i) => (
-                  <TodoList key={i} todo={item.todo} />
-               ))}
-            </section>
-         </div>
+         <TodoList allTodo={allTodo} setAllTodo={setAllTodo} />
       </main>
    );
 }
