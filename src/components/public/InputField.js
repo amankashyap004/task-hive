@@ -1,11 +1,16 @@
 import React from "react";
 
-export default function InputField() {
+export default function InputField(props) {
    return (
       <section className="py-8 flex justify-center items-center w-full ">
-         <form className=" bg-green-100 flex justify-center items-center w-2/4 rounded-full">
+         <form
+            onSubmit={props.handleAdd}
+            className=" bg-green-100 flex justify-center items-center w-2/4 rounded-full"
+         >
             <input
                type="text"
+               value={props.todo}
+               onChange={(e) => props.setTodo(e.target.value)}
                placeholder="Enter a Todo"
                className="w-full px-6 py-3 outline-none bg-transparent "
             />
