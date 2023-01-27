@@ -9,13 +9,13 @@ export default function TodoContainer(props) {
             {props.todo}
          </span>
          <div className="flex justify-center items-center">
-            <span className="cursor-pointer text-xl px-1">
+            <span className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400">
                <AiFillEdit />
             </span>
-            <span className="cursor-pointer text-xl px-1">
+            <span className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400">
                <AiFillDelete />
             </span>
-            <span className="cursor-pointer text-xl px-1">
+            <span className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400">
                <MdDone />
             </span>
          </div>
