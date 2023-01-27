@@ -3,12 +3,16 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 
 export default function TodoContainer(props) {
+   const handleDelete = (id) => {
+      props.setAllTodo(props.allTodo.filter((todo) => todo.id !== id));
+   };
+
    const handleDone = (id) => {
       props.setAllTodo(
          props.allTodo.map((todo) => (todo.id === id ? { ...todo, isDone: !todo.isDone } : todo))
       );
-      console.log(id);
    };
+
    return (
       <section className="bg-indigo-800 text-white w-1/2 rounded-xl p-4 flex items-center justify-between m-4">
          {props.isDone ? (
@@ -24,7 +28,10 @@ export default function TodoContainer(props) {
             <span className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400">
                <AiFillEdit />
             </span>
-            <span className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400">
+            <span
+               onClick={() => handleDelete(props.id)}
+               className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400"
+            >
                <AiFillDelete />
             </span>
             <span
