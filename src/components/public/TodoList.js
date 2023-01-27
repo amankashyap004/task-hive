@@ -8,6 +8,8 @@ export default function TodoList(props) {
             <TodoContainer
                todo={item.todo}
                key={item.id}
+               id={item.id}
+               isDone={item.isDone}
                allTodo={props.allTodo}
                setAllTodo={props.setAllTodo}
             />

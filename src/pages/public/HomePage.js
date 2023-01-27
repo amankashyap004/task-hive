@@ -11,7 +11,8 @@ export default function HomePage() {
       e.preventDefault();
       if (todo) {
          setAllTodo([...allTodo, { id: Date.now(), todo, isDone: false }]);
-         setAllTodo("");
+      } else {
+         setAllTodo([...allTodo]);
       }
    };
 
