@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/public/Header";
 import InputField from "../../components/public/InputField";
 import TodoList from "../../components/public/TodoList";
+import { DragDropContext } from "react-beautiful-dnd";
 
 export default function HomePage() {
    const [todo, setTodo] = useState("");
@@ -20,14 +21,16 @@ export default function HomePage() {
    // console.log(allTodo);
    return (
       <main>
-         <Header />
-         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-         <TodoList
-            allTodo={allTodo}
-            setAllTodo={setAllTodo}
-            completedTodo={completedTodo}
-            setCompletedTodo={setCompletedTodo}
-         />
+         <DragDropContext onDragEnd={() => {}}>
+            <Header />
+            <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+            <TodoList
+               allTodo={allTodo}
+               setAllTodo={setAllTodo}
+               completedTodo={completedTodo}
+               setCompletedTodo={setCompletedTodo}
+            />
+         </DragDropContext>
       </main>
    );
 }
