@@ -28,7 +28,7 @@ export default function TodoContainer(props) {
    return (
       <form
          onSubmit={(e) => handleEdit(e, props.id)}
-         className="bg-indigo-800 text-white w-full rounded-xl p-4 flex items-center justify-between m-4"
+         className="bg-indigo-800 text-white w-full rounded-xl p-4 flex items-center justify-between m-4 hover:scale-[1.01] hover:shadow-[0px_0px_4px_rgba(0,0,0,0.9),0px_0px_4px_rgba(0,0,0,0.9)] transition-all ease-linear cursor-pointer"
       >
          {edit ? (
             <input
