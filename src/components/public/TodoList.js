@@ -4,7 +4,7 @@ import { Droppable } from "react-beautiful-dnd";
 
 export default function TodoList(props) {
    return (
-      <section className="flex items-center justify-around">
+      <section className="flex items-start justify-around">
          <Droppable droppableId="todoList">
             {(provided) => (
                <div
@@ -41,14 +41,14 @@ export default function TodoList(props) {
                      Completed Task
                   </samp>
                   <div className="w-full flex items-center justify-center flex-wrap">
-                     {props.allTodo.map((item) => (
+                     {props.completedTodo.map((item) => (
                         <TodoContainer
                            todo={item.todo}
                            key={item.id}
                            id={item.id}
                            isDone={item.isDone}
-                           allTodo={props.allTodo}
-                           setAllTodo={props.setAllTodo}
+                           allTodo={props.completedTodo}
+                           setAllTodo={props.setCompletedTodo}
                         />
                      ))}
                   </div>
