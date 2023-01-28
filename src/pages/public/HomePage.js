@@ -6,6 +6,7 @@ import TodoList from "../../components/public/TodoList";
 export default function HomePage() {
    const [todo, setTodo] = useState("");
    const [allTodo, setAllTodo] = useState([]);
+   const [completedTodo, setCompletedTodo] = useState([]);
 
    const handleAdd = (e) => {
       e.preventDefault();
@@ -21,7 +22,12 @@ export default function HomePage() {
       <main>
          <Header />
          <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-         <TodoList allTodo={allTodo} setAllTodo={setAllTodo} />
+         <TodoList
+            allTodo={allTodo}
+            setAllTodo={setAllTodo}
+            completedTodo={completedTodo}
+            setCompletedTodo={setCompletedTodo}
+         />
       </main>
    );
 }
