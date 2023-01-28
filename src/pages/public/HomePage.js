@@ -58,13 +58,15 @@ export default function HomePage() {
       <main>
          <DragDropContext onDragEnd={onDragEnd}>
             <Header />
-            <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-            <TodoList
-               allTodo={allTodo}
-               setAllTodo={setAllTodo}
-               completedTodo={completedTodo}
-               setCompletedTodo={setCompletedTodo}
-            />
+            <section className="relative top-14">
+               <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+               <TodoList
+                  allTodo={allTodo}
+                  setAllTodo={setAllTodo}
+                  completedTodo={completedTodo}
+                  setCompletedTodo={setCompletedTodo}
+               />
+            </section>
          </DragDropContext>
       </main>
    );

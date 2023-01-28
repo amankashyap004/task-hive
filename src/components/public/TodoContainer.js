@@ -34,22 +34,22 @@ export default function TodoContainer(props) {
                {...provided.draggableProps}
                {...provided.dragHandleProps}
                onSubmit={(e) => handleEdit(e, props.id)}
-               className={`bg-indigo-800 text-white w-full rounded-xl p-4 flex items-center justify-between m-4 hover:scale-[1.01] hover:shadow-[0px_0px_4px_rgba(0,0,0,0.9),0px_0px_4px_rgba(0,0,0,0.9)] transition-all ease-linear cursor-pointer ${
+               className={`bg-indigo-800 text-white w-full rounded-xl p-4 m-3 flex items-start justify-between  hover:scale-[1.01] hover:shadow-[0px_0px_4px_rgba(0,0,0,0.9),0px_0px_4px_rgba(0,0,0,0.9)] transition-all ease-linear cursor-pointer ${
                   snapshot.isDragging ? "bg-indigo-600" : ""
-               }`}
+               } md:p-3 md:m-2`}
             >
                {edit ? (
                   <input
                      value={editTodo}
                      onChange={(e) => setEditTodo(e.target.value)}
-                     className="w-[85%] p-2 outline-none rounded bg-transparent border-dashed border-2 border-slate-100"
+                     className="w-[85%] p-2 outline-none rounded bg-transparent border-dashed border-2 border-slate-100 text-base md:text-sm"
                   />
                ) : props.isDone ? (
-                  <s className="font-bold" type="text">
+                  <s className="font-bold text-base md:text-sm" type="text">
                      {props.todo}
                   </s>
                ) : (
-                  <span className="font-bold" type="text">
+                  <span className="font-bold text-base md:text-sm" type="text">
                      {props.todo}
                   </span>
                )}

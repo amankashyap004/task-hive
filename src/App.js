@@ -4,7 +4,7 @@ import HomePage from "./pages/public/HomePage";
 
 function App() {
    return (
-      <div className="bg-slate-800 h-screen">
+      <div>
          <HomePage />
       </div>
    );
