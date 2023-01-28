@@ -6,11 +6,13 @@ export default function TodoList(props) {
    return (
       <section className="flex items-start justify-around">
          <Droppable droppableId="todoList">
-            {(provided) => (
+            {(provided, snapshot) => (
                <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className="bg-green-300 w-[45%] rounded flex items-center justify-center flex-wrap"
+                  className={`bg-green-300 w-[45%] rounded flex items-center justify-center flex-wrap ${
+                     snapshot.isDraggingOver ? "bg-green-500" : ""
+                  }`}
                >
                   <samp className="flex items-center justify-center font-bold text-lg p-4">
                      Active Task
@@ -33,11 +35,13 @@ export default function TodoList(props) {
             )}
          </Droppable>
          <Droppable droppableId="todoRemove">
-            {(provided) => (
+            {(provided, snapshot) => (
                <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className="bg-red-300 w-[45%] rounded flex items-center justify-center flex-wrap"
+                  className={`bg-red-300 w-[45%] rounded flex items-center justify-center flex-wrap ${
+                     snapshot.isDraggingOver ? "bg-red-500" : ""
+                  }`}
                >
                   <samp className="flex items-center justify-center font-bold text-lg p-4">
                      Completed Task

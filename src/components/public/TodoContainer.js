@@ -28,13 +28,15 @@ export default function TodoContainer(props) {
 
    return (
       <Draggable draggableId={props.id.toString()} index={props.index}>
-         {(provided) => (
+         {(provided, snapshot) => (
             <form
                ref={provided.innerRef}
                {...provided.draggableProps}
                {...provided.dragHandleProps}
                onSubmit={(e) => handleEdit(e, props.id)}
-               className="bg-indigo-800 text-white w-full rounded-xl p-4 flex items-center justify-between m-4 hover:scale-[1.01] hover:shadow-[0px_0px_4px_rgba(0,0,0,0.9),0px_0px_4px_rgba(0,0,0,0.9)] transition-all ease-linear cursor-pointer"
+               className={`bg-indigo-800 text-white w-full rounded-xl p-4 flex items-center justify-between m-4 hover:scale-[1.01] hover:shadow-[0px_0px_4px_rgba(0,0,0,0.9),0px_0px_4px_rgba(0,0,0,0.9)] transition-all ease-linear cursor-pointer ${
+                  snapshot.isDragging ? "bg-indigo-600" : ""
+               }`}
             >
                {edit ? (
                   <input
