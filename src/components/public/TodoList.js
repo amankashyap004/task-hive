@@ -9,15 +9,16 @@ export default function TodoList(props) {
             {(provided) => (
                <div
                   ref={provided.innerRef}
-                  {...provided.draggableProps}
+                  {...provided.droppableProps}
                   className="bg-green-300 w-[45%] rounded flex items-center justify-center flex-wrap"
                >
                   <samp className="flex items-center justify-center font-bold text-lg p-4">
                      Active Task
                   </samp>
                   <div className="w-full flex items-center justify-center flex-wrap">
-                     {props.allTodo.map((item) => (
+                     {props.allTodo.map((item, index) => (
                         <TodoContainer
+                           index={index}
                            todo={item.todo}
                            key={item.id}
                            id={item.id}
@@ -26,6 +27,7 @@ export default function TodoList(props) {
                            setAllTodo={props.setAllTodo}
                         />
                      ))}
+                     {provided.placeholder}
                   </div>
                </div>
             )}
@@ -34,15 +36,16 @@ export default function TodoList(props) {
             {(provided) => (
                <div
                   ref={provided.innerRef}
-                  {...provided.draggableProps}
+                  {...provided.droppableProps}
                   className="bg-red-300 w-[45%] rounded flex items-center justify-center flex-wrap"
                >
                   <samp className="flex items-center justify-center font-bold text-lg p-4">
                      Completed Task
                   </samp>
                   <div className="w-full flex items-center justify-center flex-wrap">
-                     {props.completedTodo.map((item) => (
+                     {props.completedTodo.map((item, index) => (
                         <TodoContainer
+                           index={index}
                            todo={item.todo}
                            key={item.id}
                            id={item.id}
@@ -51,6 +54,7 @@ export default function TodoList(props) {
                            setAllTodo={props.setCompletedTodo}
                         />
                      ))}
+                     {provided.placeholder}
                   </div>
                </div>
             )}

@@ -19,9 +19,44 @@ export default function HomePage() {
    };
 
    // console.log(allTodo);
+   const onDragEnd = (result) => {
+      const { destination, source } = result;
+      // console.log(result);
+      if (!destination) {
+         return;
+      }
+
+      if (destination.droppableId === source.droppableId && destination.index === source.index) {
+         return;
+      }
+
+      let add = "";
+      let active = allTodo;
+      let complete = completedTodo;
+
+      // Source Logic
+      if (source.droppableId === "todoList") {
+         add = active[source.index];
+         active.splice(source.index, 1);
+      } else {
+         add = complete[source.index];
+         complete.splice(source.index, 1);
+      }
+
+      // Destination Logic
+      if (destination.droppableId === "todoList") {
+         active.splice(destination.index, 0, add);
+      } else {
+         complete.splice(destination.index, 0, add);
+      }
+
+      setCompletedTodo(complete);
+      setAllTodo(active);
+   };
+
    return (
       <main>
-         <DragDropContext onDragEnd={() => {}}>
+         <DragDropContext onDragEnd={onDragEnd}>
             <Header />
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
             <TodoList
