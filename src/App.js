@@ -6,6 +6,7 @@ import LoginAndSignupPage from "./pages/public/LoginAndSignupPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/public/Login";
 import Signup from "./components/public/Signup";
+import LoginPage from "./pages/public/LoginPage";
 function App() {
    return (
       <BrowserRouter>
@@ -33,7 +34,7 @@ function App() {
                element={
                   <div>
                      <Header />
-                     <Login />
+                     <LoginPage />
                   </div>
                }
             />
