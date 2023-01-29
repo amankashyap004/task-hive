@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
    return (
@@ -43,12 +44,12 @@ export default function Login() {
             </button>
             <div className="flex justify-end items-end mt-4 w-full">
                <samp className="font-bold text-sm">Don't have an account?&nbsp;</samp>
-               <a
-                  href="#"
+               <Link
+                  to="/signup"
                   className="font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer"
                >
                   Signup
-               </a>
+               </Link>
             </div>
          </div>
       </form>
