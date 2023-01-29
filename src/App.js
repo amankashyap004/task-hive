@@ -4,9 +4,8 @@ import Header from "./components/public/Header";
 import HomePage from "./pages/public/HomePage";
 import LoginAndSignupPage from "./pages/public/LoginAndSignupPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/public/Login";
-import Signup from "./components/public/Signup";
 import LoginPage from "./pages/public/LoginPage";
+import SignupPage from "./pages/public/SignupPage";
 function App() {
    return (
       <BrowserRouter>
@@ -43,7 +42,7 @@ function App() {
                element={
                   <div>
                      <Header />
-                     <Signup />
+                     <SignupPage />
                   </div>
                }
             />
