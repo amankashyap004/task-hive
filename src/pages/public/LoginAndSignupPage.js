@@ -11,8 +11,8 @@ export default function LoginAndSignupPage() {
                   {/* <img src="/images/Login.jpg" /> */}
                </div>
                <div className="w-[50%] ">
-                  {/* <Login /> */}
-                  <Signup />
+                  <Login />
+                  {/* <Signup /> */}
                </div>
             </div>
          </div>
