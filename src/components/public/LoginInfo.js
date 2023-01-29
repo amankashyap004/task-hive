@@ -1,5 +1,6 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
+import { Link } from "react-router-dom";
 
 export default function LoginInfo() {
    const todoInfos = [
@@ -21,8 +22,12 @@ export default function LoginInfo() {
          <samp className="font-extrabold">A To-Do List website is important because it:</samp>
          <ul className="text-sm leading-6">{listItems}</ul>
          <div className="flex justify-center items-center mt-12">
-            <SmallBtn text="Login" />
-            <SmallBtn text="signup" />
+            <Link to="/login">
+               <SmallBtn text="Login" />
+            </Link>
+            <Link to="/signup">
+               <SmallBtn text="signup" />
+            </Link>
          </div>
       </section>
    );
