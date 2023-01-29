@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../../components/public/Login";
 import Signup from "../../components/public/Signup";
+import LoginInfo from "../../components/public/LoginInfo";
 
 export default function LoginAndSignupPage() {
    return (
@@ -11,8 +12,9 @@ export default function LoginAndSignupPage() {
                   {/* <img src="/images/Login.jpg" /> */}
                </div>
                <div className="w-[50%] ">
-                  <Login />
+                  {/* <Login /> */}
                   {/* <Signup /> */}
+                  <LoginInfo />
                </div>
             </div>
          </div>
