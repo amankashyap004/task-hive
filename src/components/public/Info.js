@@ -2,7 +2,7 @@ import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
 import { Link } from "react-router-dom";
 
-export default function LoginInfo() {
+export default function Info() {
    const todoInfos = [
       "1. Increases productivity by providing a clear and organized view of tasks.",
       "2. Enhances time management by helping prioritize and schedule tasks.",
@@ -10,7 +10,7 @@ export default function LoginInfo() {
       "4. Improves accountability by allowing for easy monitoring of task completion.",
       "5. Enhances goal-setting by providing a visual representation of progress towards objectives.",
    ];
-   const listItems = todoInfos.map((todoInfo) => <li>{todoInfo}</li>);
+   const listItems = todoInfos.map((todoInfo, i) => <li key={i}>{todoInfo}</li>);
    return (
       <section className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8">
          <samp>

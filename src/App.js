@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 import Header from "./components/public/Header";
 import HomePage from "./pages/public/HomePage";
-import LoginAndSignupPage from "./pages/public/LoginAndSignupPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/public/LoginPage";
 import SignupPage from "./pages/public/SignupPage";
+import InfoPage from "./pages/public/InfoPage";
 function App() {
    return (
       <BrowserRouter>
@@ -15,7 +15,7 @@ function App() {
                element={
                   <div>
                      <Header />
-                     <LoginAndSignupPage />
+                     <InfoPage />
                   </div>
                }
             />
