@@ -11,8 +11,9 @@ export default function Header() {
             </Link>
          </div>
          <section className="mr-4 flex justify-between items-center md:mr-2 sm:mr-1">
-            <SmallBtn text="Login" />
-            <SmallBtn text="Sing up" />
+            <Link to="/home">
+               <SmallBtn text="Home" />
+            </Link>
          </section>
       </header>
    );
