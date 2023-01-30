@@ -16,9 +16,10 @@ export default function HomePage() {
       } else {
          setAllTodo([...allTodo]);
       }
+      setTodo("");
    };
 
-   // console.log(allTodo);
+   console.log(allTodo);
    const onDragEnd = (result) => {
       const { destination, source } = result;
       // console.log(result);
