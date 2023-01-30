@@ -5,12 +5,35 @@ export default function Login() {
    const [userEmail, setUserEmail] = useState("");
    const [userPassword, setUserPassword] = useState("");
 
+   const [userEmailError, setUserEmailError] = useState("");
+   const [userPasswordError, setUserPasswordError] = useState("");
+
+   const validate = () => {
+      let isError = false;
+      if (userEmail === "") {
+         isError = true;
+         setUserEmailError("Please enter your email");
+      } else {
+         setUserEmailError("");
+      }
+
+      if (userPassword === "") {
+         isError = true;
+         setUserPasswordError("Please enter your password");
+      } else {
+         setUserPasswordError("");
+      }
+      return isError;
+   };
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log("User's Email:", userEmail);
-      console.log("User's Password:", userPassword);
-      setUserEmail("");
-      setUserPassword("");
+      const err = validate();
+      if (!err) {
+         console.log("User's Email:", userEmail);
+         console.log("User's Password:", userPassword);
+         setUserEmail("");
+         setUserPassword("");
+      }
    };
 
    return (
@@ -19,9 +42,12 @@ export default function Login() {
             Login
          </samp>
          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-               Email
-            </label>
+            <div className="flex justify-between items-center">
+               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                  Email
+               </label>
+               <samp className="text-red-500 text-xs italic">{userEmailError}</samp>
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                id="email"
@@ -32,12 +58,15 @@ export default function Login() {
             />
          </div>
          <div className="mb-3">
-            <label
-               className="block text-gray-700 text-sm font-bold mb-2"
-               htmlFor="current-password"
-            >
-               Password
-            </label>
+            <div className="flex justify-between items-center">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="current-password"
+               >
+                  Password
+               </label>
+               <samp className="text-red-500 text-xs italic">{userPasswordError}</samp>
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline"
                id="current-password"
@@ -46,7 +75,6 @@ export default function Login() {
                value={userPassword}
                onChange={(event) => setUserPassword(event.target.value)}
             />
-            {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
          </div>
          <div className="flex justify-start items-start mb-4 w-full">
             <samp className="font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer">
