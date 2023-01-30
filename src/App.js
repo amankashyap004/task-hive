@@ -8,7 +8,7 @@ import SignupPage from "./pages/public/SignupPage";
 import InfoPage from "./pages/public/InfoPage";
 function App() {
    return (
-      <BrowserRouter>
+      <BrowserRouter basename="todo-list-in-react">
          <Routes>
             <Route
                path={`/`}
