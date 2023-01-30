@@ -10,24 +10,64 @@ export default function Signup() {
       confirmPassword: "",
    });
 
+   const [errors, setErrors] = useState({
+      fullName: "",
+      email: "",
+      phone: "",
+      currentPassword: "",
+      confirmPassword: "",
+   });
+
    const handleChange = (event) => {
       setState({ ...state, [event.target.id]: event.target.value });
+      setErrors({ ...errors, [event.target.id]: "" });
+   };
+
+   const validate = () => {
+      let hasErrors = false;
+
+      if (!state.fullName) {
+         setErrors({ ...errors, fullName: "Full Name is required" });
+         hasErrors = true;
+      }
+      if (!state.email) {
+         setErrors({ ...errors, email: "Email is required" });
+         hasErrors = true;
+      }
+      if (!state.phone) {
+         setErrors({ ...errors, phone: "Phone is required" });
+         hasErrors = true;
+      }
+      if (!state.currentPassword) {
+         setErrors({ ...errors, currentPassword: "Password is required" });
+         hasErrors = true;
+      }
+      if (!state.confirmPassword) {
+         setErrors({
+            ...errors,
+            confirmPassword: "Confirm Password is required",
+         });
+         hasErrors = true;
+      }
    };
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log("Full Name:", state.fullName);
-      console.log("Email:", state.email);
-      console.log("Phone:", state.phone);
-      console.log("Current Password:", state.currentPassword);
-      console.log("Confirm Password:", state.confirmPassword);
-      setState({
-         fullName: "",
-         email: "",
-         phone: "",
-         currentPassword: "",
-         confirmPassword: "",
-      });
+      const hasErr = validate();
+      if (!hasErr) {
+         console.log("Full Name:", state.fullName);
+         console.log("Email:", state.email);
+         console.log("Phone:", state.phone);
+         console.log("Current Password:", state.currentPassword);
+         console.log("Confirm Password:", state.confirmPassword);
+         setState({
+            fullName: "",
+            email: "",
+            phone: "",
+            currentPassword: "",
+            confirmPassword: "",
+         });
+      }
    };
 
    return (
@@ -36,9 +76,14 @@ export default function Signup() {
             Signup
          </samp>
          <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
-               Full Name
-            </label>
+            <div className="flex justify-between items-center">
+               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
+                  Full Name
+               </label>
+               {errors.fullName && (
+                  <samp className="text-red-500 text-xs italic">{errors.fullName}</samp>
+               )}
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                id="fullName"
@@ -49,9 +94,12 @@ export default function Signup() {
             />
          </div>
          <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
-               Phone
-            </label>
+            <div className="flex justify-between items-center">
+               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
+                  Phone
+               </label>
+               {errors.phone && <samp className="text-red-500 text-xs italic">{errors.phone}</samp>}
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                id="phone"
@@ -62,9 +110,12 @@ export default function Signup() {
             />
          </div>
          <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-               Email
-            </label>
+            <div className="flex justify-between items-center">
+               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                  Email
+               </label>
+               {errors.email && <samp className="text-red-500 text-xs italic">{errors.email}</samp>}
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                id="email"
@@ -75,9 +126,17 @@ export default function Signup() {
             />
          </div>
          <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="currentPassword">
-               Password
-            </label>
+            <div className="flex justify-between items-center">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="currentPassword"
+               >
+                  Password
+               </label>
+               {errors.currentPassword && (
+                  <samp className="text-red-500 text-xs italic">{errors.currentPassword}</samp>
+               )}
+            </div>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
                id="currentPassword"
@@ -88,9 +147,18 @@ export default function Signup() {
             />
          </div>
          <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
-               Conform Password
-            </label>
+            <div className="flex justify-between items-center">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="confirmPassword"
+               >
+                  Conform Password
+               </label>
+               {errors.confirmPassword && (
+                  <samp className="text-red-500 text-xs italic">{errors.confirmPassword}</samp>
+               )}
+            </div>
+
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
                id="confirmPassword"
