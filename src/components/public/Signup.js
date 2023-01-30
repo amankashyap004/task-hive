@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LongBtn from "../../utils/LongBtn";
 
 export default function Signup() {
    const [state, setState] = useState({
@@ -169,12 +170,7 @@ export default function Signup() {
             />
          </div>
          <div className="flex items-center justify-center flex-col w-full">
-            <button
-               className="bg-blue-500 text-white py-3 font-bold w-full text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-               type="submit"
-            >
-               Signup
-            </button>
+            <LongBtn text="Signup" />
             <div className="flex justify-end items-end mt-4 w-full">
                <samp className="font-bold text-sm">Already have an account?&nbsp;</samp>
                <Link
