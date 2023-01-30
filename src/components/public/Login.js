@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+   const [userEmail, setUserEmail] = useState("");
+   const [userPassword, setUserPassword] = useState("");
+
+   const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log("User's Email:", userEmail);
+      console.log("User's Password:", userPassword);
+      setUserEmail("");
+      setUserPassword("");
+   };
+
    return (
-      <form className="bg-blue-50 shadow-md rounded px-8 pt-6 pb-8">
+      <form className="bg-blue-50 shadow-md rounded px-8 pt-6 pb-8" onSubmit={handleSubmit}>
          <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase">
             Login
          </samp>
@@ -16,17 +27,24 @@ export default function Login() {
                id="email"
                type="text"
                placeholder="Enter your email"
+               value={userEmail}
+               onChange={(event) => setUserEmail(event.target.value)}
             />
          </div>
          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+               className="block text-gray-700 text-sm font-bold mb-2"
+               htmlFor="current-password"
+            >
                Password
             </label>
             <input
                className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline"
-               id="password"
-               type="password"
-               placeholder="******************"
+               id="current-password"
+               type="current-password"
+               placeholder="Enter your password"
+               value={userPassword}
+               onChange={(event) => setUserPassword(event.target.value)}
             />
             {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
          </div>
@@ -38,7 +56,7 @@ export default function Login() {
          <div className="flex items-center justify-center flex-col w-full">
             <button
                className="bg-blue-500 text-white py-3 font-bold w-full text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-               type="button"
+               type="submit"
             >
                Login
             </button>
