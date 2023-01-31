@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
+import InputUtils from "../../utils/InputUtils";
 
 export default function Signup() {
    const [state, setState] = useState({
@@ -83,108 +84,56 @@ export default function Signup() {
          <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase">
             Signup
          </samp>
-         <div className="mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="fullName"
-               >
-                  Full Name
-               </label>
-               {errors.fullName && (
-                  <samp className="text-red-500 text-xs italic">{errors.fullName}</samp>
-               )}
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-               id="fullName"
-               type="text"
-               placeholder="Enter your full name"
-               value={state.fullName}
-               onChange={handleChange}
-            />
-         </div>
-         <div className="mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="phone"
-               >
-                  Phone
-               </label>
-               {errors.phone && <samp className="text-red-500 text-xs italic">{errors.phone}</samp>}
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-               id="phone"
-               type="text"
-               placeholder="Enter your phone number"
-               value={state.phone}
-               onChange={handleChange}
-            />
-         </div>
-         <div className="mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="email"
-               >
-                  Email
-               </label>
-               {errors.email && <samp className="text-red-500 text-xs italic">{errors.email}</samp>}
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-               id="email"
-               type="text"
-               placeholder="Enter your email"
-               value={state.email}
-               onChange={handleChange}
-            />
-         </div>
-         <div className="mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="currentPassword"
-               >
-                  Password
-               </label>
-               {errors.currentPassword && (
-                  <samp className="text-red-500 text-xs italic">{errors.currentPassword}</samp>
-               )}
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
-               id="currentPassword"
-               type="current-password"
-               placeholder="******************"
-               value={state.currentPassword}
-               onChange={handleChange}
-            />
-         </div>
-         <div className="mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="confirmPassword"
-               >
-                  Conform Password
-               </label>
-               {errors.confirmPassword && (
-                  <samp className="text-red-500 text-xs italic">{errors.confirmPassword}</samp>
-               )}
-            </div>
-
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
-               id="confirmPassword"
-               type="confirm-password"
-               placeholder="******************"
-               value={state.confirmPassword}
-               onChange={handleChange}
-            />
-         </div>
+         <InputUtils
+            htmlFor={"fullName"}
+            labelTitle={"Full Name"}
+            errorsName={errors.fullName}
+            id={"fullName"}
+            type={"text"}
+            placeholder={"Enter your full name"}
+            value={state.fullName}
+            onChange={handleChange}
+         />
+         <InputUtils
+            htmlFor={"phone"}
+            labelTitle={"Phone"}
+            errorsName={errors.phone}
+            id={"phone"}
+            type={"text"}
+            placeholder={"Enter your phone number"}
+            value={state.phone}
+            onChange={handleChange}
+         />
+         <InputUtils
+            htmlFor={"email"}
+            labelTitle={"Email"}
+            errorsName={errors.email}
+            id={"email"}
+            type={"email"}
+            placeholder={"Enter your email"}
+            value={state.email}
+            onChange={handleChange}
+         />
+         <InputUtils
+            htmlFor={"currentPassword"}
+            labelTitle={"Password"}
+            errorsName={errors.currentPassword}
+            id={"currentPassword"}
+            type={"password"}
+            placeholder={"Enter your password"}
+            value={state.currentPassword}
+            onChange={handleChange}
+         />
+         <InputUtils
+            htmlFor={"confirmPassword"}
+            labelTitle={"Confirm Password"}
+            errorsName={errors.confirmPassword}
+            id={"confirmPassword"}
+            type={"password"}
+            placeholder={"Enter your password"}
+            value={state.confirmPassword}
+            onChange={handleChange}
+         />
          <div className="flex items-center justify-center flex-col w-full">
             <LongBtn text="Signup" />
             <div className="flex justify-end items-end mt-4 w-full">
