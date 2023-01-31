@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
+import InputUtils from "../../utils/InputUtils";
 
 export default function Login() {
    const [userEmail, setUserEmail] = useState("");
@@ -45,40 +46,26 @@ export default function Login() {
          <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase md:mb-3">
             Login
          </samp>
-         <div className="mb-3 md:mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="email"
-               >
-                  Email
-               </label>
-               <samp className="text-red-500 text-xs italic">{userEmailError}</samp>
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:mb-2"
-               id="email"
-               type="text"
-               placeholder="Enter your email"
+         <div className="mb-2 md:mb-0">
+            <InputUtils
+               htmlFor={"email"}
+               labelTitle={"Email"}
+               errorsName={userEmailError}
+               id={"email"}
+               type={"text"}
+               placeholder={"Enter your email"}
                value={userEmail}
                onChange={(event) => setUserEmail(event.target.value)}
             />
          </div>
-         <div className="mb-3 md:mb-1">
-            <div className="flex justify-between items-center">
-               <label
-                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
-                  htmlFor="current-password"
-               >
-                  Password
-               </label>
-               <samp className="text-red-500 text-xs italic">{userPasswordError}</samp>
-            </div>
-            <input
-               className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline md:mb-2"
-               id="current-password"
-               type="current-password"
-               placeholder="Enter your password"
+         <div className="mb-2 md:mb-0">
+            <InputUtils
+               htmlFor={"password"}
+               labelTitle={"Password"}
+               errorsName={userPasswordError}
+               id={"password"}
+               type={"password"}
+               placeholder={"Enter your password"}
                value={userPassword}
                onChange={(event) => setUserPassword(event.target.value)}
             />
