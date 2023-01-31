@@ -120,6 +120,7 @@ export default function Signup() {
             errorsName={errors.currentPassword}
             id={"currentPassword"}
             type={"password"}
+            autoComplete="currentPassword"
             placeholder={"Enter your password"}
             value={state.currentPassword}
             onChange={handleChange}
@@ -130,6 +131,7 @@ export default function Signup() {
             errorsName={errors.confirmPassword}
             id={"confirmPassword"}
             type={"password"}
+            autoComplete="confirmPassword"
             placeholder={"Enter your password"}
             value={state.confirmPassword}
             onChange={handleChange}

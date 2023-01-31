@@ -65,6 +65,7 @@ export default function Login() {
                errorsName={userPasswordError}
                id={"password"}
                type={"password"}
+               autoComplete="password"
                placeholder={"Enter your password"}
                value={userPassword}
                onChange={(event) => setUserPassword(event.target.value)}
