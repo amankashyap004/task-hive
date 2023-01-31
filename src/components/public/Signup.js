@@ -24,7 +24,8 @@ export default function Signup() {
       setErrors({ ...errors, [event.target.id]: "" });
    };
 
-   const validate = () => {
+   const handleSubmit = (event) => {
+      event.preventDefault();
       let hasErrors = false;
 
       if (!state.fullName) {
@@ -50,12 +51,7 @@ export default function Signup() {
          });
          hasErrors = true;
       }
-   };
-
-   const handleSubmit = (event) => {
-      event.preventDefault();
-      const hasErr = validate();
-      if (!hasErr) {
+      if (!hasErrors) {
          console.log("Full Name:", state.fullName);
          console.log("Email:", state.email);
          console.log("Phone:", state.phone);
