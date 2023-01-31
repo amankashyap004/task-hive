@@ -16,12 +16,12 @@ A simple and easy to use Todo List application built with React, React Beautiful
 
 ## Installation
 
-1. Clone the repository: git clone https://github.com/amankashyap004/todo-list-in-react
+1. Clone the repository: git clone https://github.com/amankashyap004/task-hive
 2. Install the dependencies: npm install or yarn install
 
 ```bash
-  npm install todo-list
-  cd todo-list
+  cd task-hive
+  npm install
 ```
 
 3. Start the development server: npm start or yarn start
@@ -44,4 +44,4 @@ React Beautiful DnD and Tailwind CSS teams for their amazing libraries
 
 # Live
 
-[Click me](https://amankashyap004.github.io/todo-list-in-react/)
+[Click me](https://amankashyap004.github.io/task-hive/)

@@ -1,8 +1,8 @@
 {
-  "name": "todo-list-in-react",
+  "name": "task-hive",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://amankashyap004.github.io/todo-list-in-react/",
+  "homepage": "https://amankashyap004.github.io/task-hive/",
   "dependencies": {
     "@hello-pangea/dnd": "^16.2.0",
     "@testing-library/jest-dom": "^5.16.5",
