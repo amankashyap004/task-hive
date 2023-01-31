@@ -18,7 +18,7 @@ export default function InputUtils(props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id={props.id}
             type={props.type}
-            autoComplete={props.autoComplete}
+            autoComplete={props.autoComplete || ""}
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
