@@ -55,7 +55,10 @@ export default function Login() {
                type={"text"}
                placeholder={"Enter your email"}
                value={userEmail}
-               onChange={(event) => setUserEmail(event.target.value)}
+               onChange={(event) => {
+                  setUserEmail(event.target.value);
+                  setUserEmailError("");
+               }}
             />
          </div>
          <div className="mb-2 md:mb-0">
@@ -68,7 +71,10 @@ export default function Login() {
                autoComplete="password"
                placeholder={"Enter your password"}
                value={userPassword}
-               onChange={(event) => setUserPassword(event.target.value)}
+               onChange={(event) => {
+                  setUserPassword(event.target.value);
+                  setUserPasswordError("");
+               }}
             />
          </div>
          <div className="flex justify-start items-start mb-4 w-full">
