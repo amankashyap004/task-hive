@@ -72,13 +72,19 @@ export default function Signup() {
    };
 
    return (
-      <form className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8" onSubmit={handleSubmit}>
-         <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase">
+      <form
+         className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-b-lg"
+         onSubmit={handleSubmit}
+      >
+         <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase md:font-semibold">
             Signup
          </samp>
          <div className="mb-1">
             <div className="flex justify-between items-center">
-               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
+                  htmlFor="fullName"
+               >
                   Full Name
                </label>
                {errors.fullName && (
@@ -96,7 +102,10 @@ export default function Signup() {
          </div>
          <div className="mb-1">
             <div className="flex justify-between items-center">
-               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
+                  htmlFor="phone"
+               >
                   Phone
                </label>
                {errors.phone && <samp className="text-red-500 text-xs italic">{errors.phone}</samp>}
@@ -112,7 +121,10 @@ export default function Signup() {
          </div>
          <div className="mb-1">
             <div className="flex justify-between items-center">
-               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+               <label
+                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
+                  htmlFor="email"
+               >
                   Email
                </label>
                {errors.email && <samp className="text-red-500 text-xs italic">{errors.email}</samp>}
@@ -129,7 +141,7 @@ export default function Signup() {
          <div className="mb-1">
             <div className="flex justify-between items-center">
                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
                   htmlFor="currentPassword"
                >
                   Password
@@ -150,7 +162,7 @@ export default function Signup() {
          <div className="mb-1">
             <div className="flex justify-between items-center">
                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 md:font-semibold"
                   htmlFor="confirmPassword"
                >
                   Conform Password
@@ -161,7 +173,7 @@ export default function Signup() {
             </div>
 
             <input
-               className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
+               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
                id="confirmPassword"
                type="confirm-password"
                placeholder="******************"
@@ -172,10 +184,12 @@ export default function Signup() {
          <div className="flex items-center justify-center flex-col w-full">
             <LongBtn text="Signup" />
             <div className="flex justify-end items-end mt-4 w-full">
-               <samp className="font-bold text-sm">Already have an account?&nbsp;</samp>
+               <samp className="font-bold text-sm md:font-semibold">
+                  Already have an account?&nbsp;
+               </samp>
                <Link
                   to="/login"
-                  className="font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer"
+                  className="font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer md:font-semibold"
                >
                   Login
                </Link>
