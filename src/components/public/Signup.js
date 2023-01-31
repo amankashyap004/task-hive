@@ -46,7 +46,7 @@ export default function Signup() {
       if (!state.confirmPassword) {
          setErrors({
             ...errors,
-            confirmPassword: "Confirm Password is required",
+            confirmPassword: "Password is required",
          });
          hasErrors = true;
       }
@@ -76,7 +76,7 @@ export default function Signup() {
          className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-b-lg"
          onSubmit={handleSubmit}
       >
-         <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase md:font-semibold">
+         <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase">
             Signup
          </samp>
          <div className="mb-1">
