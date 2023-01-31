@@ -17,6 +17,7 @@ export default function Signup() {
       phone: "",
       currentPassword: "",
       confirmPassword: "",
+      doNotMatch: "",
    });
 
    const handleChange = (event) => {
@@ -51,6 +52,13 @@ export default function Signup() {
          });
          hasErrors = true;
       }
+
+      if (state.currentPassword !== state.confirmPassword) {
+         setErrors({ ...errors, doNotMatch: "Passwords do not match" });
+         hasErrors = true;
+      }
+      console.log(errors.doNotMatch);
+
       if (!hasErrors) {
          console.log("Full Name:", state.fullName);
          console.log("Email:", state.email);
