@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
 import InputUtils from "../../utils/InputUtils";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
    const [userEmail, setUserEmail] = useState("");
@@ -9,6 +10,8 @@ export default function Login() {
 
    const [userEmailError, setUserEmailError] = useState("");
    const [userPasswordError, setUserPasswordError] = useState("");
+
+   const navigate = useNavigate();
 
    const validate = () => {
       let isError = false;
@@ -33,8 +36,20 @@ export default function Login() {
       if (!err) {
          console.log("User's Email:", userEmail);
          console.log("User's Password:", userPassword);
-         setUserEmail("");
-         setUserPassword("");
+         const auth = getAuth();
+         signInWithEmailAndPassword(auth, userEmail, userPassword)
+            .then((userCredential) => {
+               // Signed in
+               setUserEmail("");
+               setUserPassword("");
+               const user = userCredential.user;
+               // ...
+               navigate("/home");
+            })
+            .catch((error) => {
+               const errorCode = error.code;
+               const errorMessage = error.message;
+            });
       }
    };
 

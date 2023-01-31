@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/public/LoginPage";
 import SignupPage from "./pages/public/SignupPage";
 import InfoPage from "./pages/public/InfoPage";
+import firebaseApp from "./configs/firebase";
 function App() {
    return (
       <BrowserRouter basename="task-hive">

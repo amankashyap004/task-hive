@@ -3,16 +3,25 @@ import Header from "../../components/public/Header";
 import InputField from "../../components/public/InputField";
 import TodoList from "../../components/public/TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
+import { collection, addDoc } from "firebase/firestore";
+import firebaseIns from "../../configs/firebase";
 
 export default function HomePage() {
    const [todo, setTodo] = useState("");
    const [allTodo, setAllTodo] = useState([]);
    const [completedTodo, setCompletedTodo] = useState([]);
 
-   const handleAdd = (e) => {
+   const handleAdd = async (e) => {
       e.preventDefault();
       if (todo) {
-         setAllTodo([...allTodo, { id: Date.now(), todo, isDone: false }]);
+         const td = { id: Date.now(), todo, isDone: false };
+         setAllTodo([...allTodo, td]);
+         try {
+            const docRef = await addDoc(collection(firebaseIns.db, "todos"), td);
+            console.log("Document written with ID: ", docRef.id);
+         } catch (e) {
+            console.error("Error adding document: ", e);
+         }
       } else {
          setAllTodo([...allTodo]);
       }

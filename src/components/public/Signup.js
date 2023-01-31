@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
 import InputUtils from "../../utils/InputUtils";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const initialState = {
    fullName: "",
@@ -29,7 +30,7 @@ export default function Signup() {
       setErrors({ ...errors, [event.target.id]: "" });
    };
 
-   const handleSubmit = (event) => {
+   const handleSubmit = async (event) => {
       event.preventDefault();
       let hasErrors = false;
 
@@ -60,6 +61,12 @@ export default function Signup() {
       }
 
       if (!hasErrors) {
+         try {
+            const auth = getAuth();
+            await createUserWithEmailAndPassword(auth, state.email, state.currentPassword);
+         } catch (error) {
+            console.log(error.message);
+         }
          console.log("Full Name:", state.fullName);
          console.log("Email:", state.email);
          console.log("Phone:", state.phone);
