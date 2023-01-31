@@ -3,23 +3,26 @@ import { Link } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
 import InputUtils from "../../utils/InputUtils";
 
-export default function Signup() {
-   const [state, setState] = useState({
-      fullName: "",
-      email: "",
-      phone: "",
-      currentPassword: "",
-      confirmPassword: "",
-   });
+const initialState = {
+   fullName: "",
+   email: "",
+   phone: "",
+   currentPassword: "",
+   confirmPassword: "",
+};
 
-   const [errors, setErrors] = useState({
-      fullName: "",
-      email: "",
-      phone: "",
-      currentPassword: "",
-      confirmPassword: "",
-      doNotMatch: "",
-   });
+const initialErrorsState = {
+   fullName: "",
+   email: "",
+   phone: "",
+   currentPassword: "",
+   confirmPassword: "",
+   doNotMatch: "",
+};
+
+export default function Signup() {
+   const [state, setState] = useState(initialState);
+   const [errors, setErrors] = useState(initialErrorsState);
 
    const handleChange = (event) => {
       setState({ ...state, [event.target.id]: event.target.value });
@@ -31,34 +34,30 @@ export default function Signup() {
       let hasErrors = false;
 
       if (!state.fullName) {
-         setErrors({ ...errors, fullName: "Full Name is required" });
+         setErrors((pre) => ({ ...pre, fullName: "Full Name is required" }));
          hasErrors = true;
       }
       if (!state.email) {
-         setErrors({ ...errors, email: "Email is required" });
+         setErrors((pre) => ({ ...pre, email: "Email is required" }));
          hasErrors = true;
       }
       if (!state.phone) {
-         setErrors({ ...errors, phone: "Phone is required" });
+         setErrors((pre) => ({ ...pre, phone: "Phone is required" }));
          hasErrors = true;
       }
       if (!state.currentPassword) {
-         setErrors({ ...errors, currentPassword: "Password is required" });
+         setErrors((pre) => ({ ...pre, currentPassword: "Password is required" }));
          hasErrors = true;
       }
       if (!state.confirmPassword) {
-         setErrors({
-            ...errors,
-            confirmPassword: "Password is required",
-         });
+         setErrors((pre) => ({ ...pre, confirmPassword: "Password is required" }));
          hasErrors = true;
       }
 
       if (state.currentPassword !== state.confirmPassword) {
-         setErrors({ ...errors, doNotMatch: "Passwords do not match" });
+         setErrors((pre) => ({ ...pre, doNotMatch: "Passwords do not match" }));
          hasErrors = true;
       }
-      console.log(errors.doNotMatch);
 
       if (!hasErrors) {
          console.log("Full Name:", state.fullName);
@@ -66,13 +65,8 @@ export default function Signup() {
          console.log("Phone:", state.phone);
          console.log("Current Password:", state.currentPassword);
          console.log("Confirm Password:", state.confirmPassword);
-         setState({
-            fullName: "",
-            email: "",
-            phone: "",
-            currentPassword: "",
-            confirmPassword: "",
-         });
+         setState(initialState);
+         setErrors(initialErrorsState);
       }
    };
 
@@ -136,6 +130,7 @@ export default function Signup() {
             value={state.confirmPassword}
             onChange={handleChange}
          />
+         <samp className="text-red-500 text-xs italic">{errors.doNotMatch}</samp>
          <div className="flex items-center justify-center flex-col w-full">
             <LongBtn text="Signup" />
             <div className="flex justify-end items-end mt-4 w-full">
