@@ -12,7 +12,7 @@ export default function Info() {
    ];
    const listItems = todoInfos.map((todoInfo, i) => <li key={i}>{todoInfo}</li>);
    return (
-      <section className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-b-lg">
+      <section className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-t-none md:rounded-b-lg">
          <samp>
             "Experience the power of organization with our updated To-Do List project, now featuring
             a convenient drag and drop feature. Reorder your tasks with ease and simplify your
