@@ -79,7 +79,7 @@ export default function Signup() {
 
    return (
       <form
-         className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-b-lg"
+         className="bg-blue-50 shadow-md rounded-r-lg px-8 pt-6 pb-8 md:pt-2 md:pb-6 md:px-4 md:rounded-t-none md:rounded-b-lg"
          onSubmit={handleSubmit}
       >
          <samp className="flex justify-center items-center w-full mb-4 font-bold text-lg uppercase">
