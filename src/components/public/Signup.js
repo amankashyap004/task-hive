@@ -86,58 +86,60 @@ export default function Signup() {
             Signup
          </samp>
          <InputUtils
-            htmlFor={"fullName"}
-            labelTitle={"Full Name"}
+            htmlFor="fullName"
+            labelTitle="Full Name"
             errorsName={errors.fullName}
-            id={"fullName"}
-            type={"text"}
-            placeholder={"Enter your full name"}
+            id="fullName"
+            type="text"
+            placeholder="Enter your full name"
             value={state.fullName}
             onChange={handleChange}
          />
          <InputUtils
-            htmlFor={"phone"}
-            labelTitle={"Phone"}
+            htmlFor="phone"
+            labelTitle="Phone"
             errorsName={errors.phone}
-            id={"phone"}
-            type={"text"}
-            placeholder={"Enter your phone number"}
+            id="phone"
+            type="text"
+            placeholder="Enter your phone number"
             value={state.phone}
             onChange={handleChange}
          />
          <InputUtils
-            htmlFor={"email"}
-            labelTitle={"Email"}
+            htmlFor="email"
+            labelTitle="Email"
             errorsName={errors.email}
-            id={"email"}
-            type={"email"}
-            placeholder={"Enter your email"}
+            id="email"
+            type="email"
+            placeholder="Enter your email"
             value={state.email}
             onChange={handleChange}
          />
          <InputUtils
-            htmlFor={"currentPassword"}
-            labelTitle={"Password"}
+            htmlFor="currentPassword"
+            labelTitle="Password"
             errorsName={errors.currentPassword}
-            id={"currentPassword"}
-            type={"password"}
+            id="currentPassword"
+            type="password"
             autoComplete="currentPassword"
-            placeholder={"Enter your password"}
+            placeholder="Enter your password"
             value={state.currentPassword}
             onChange={handleChange}
          />
          <InputUtils
-            htmlFor={"confirmPassword"}
-            labelTitle={"Confirm Password"}
+            htmlFor="confirmPassword"
+            labelTitle="Confirm Password"
             errorsName={errors.confirmPassword}
-            id={"confirmPassword"}
-            type={"password"}
+            id="confirmPassword"
+            type="password"
             autoComplete="confirmPassword"
-            placeholder={"Enter your password"}
+            placeholder="Enter your password"
             value={state.confirmPassword}
             onChange={handleChange}
          />
-         <samp className="text-red-500 text-xs italic">{errors.doNotMatch}</samp>
+         <div className="mb-3">
+            <samp className="text-red-500 text-xs italic">{errors.doNotMatch}</samp>
+         </div>
          <div className="flex items-center justify-center flex-col w-full">
             <LongBtn text="Signup" />
             <div className="flex justify-end items-end mt-4 w-full">

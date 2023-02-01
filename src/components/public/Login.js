@@ -63,12 +63,12 @@ export default function Login() {
          </samp>
          <div className="mb-2 md:mb-0">
             <InputUtils
-               htmlFor={"email"}
-               labelTitle={"Email"}
+               htmlFor="email"
+               labelTitle="Email"
                errorsName={userEmailError}
-               id={"email"}
-               type={"text"}
-               placeholder={"Enter your email"}
+               id="email"
+               type="text"
+               placeholder="Enter your email"
                value={userEmail}
                onChange={(event) => {
                   setUserEmail(event.target.value);
@@ -78,13 +78,13 @@ export default function Login() {
          </div>
          <div className="mb-2 md:mb-0">
             <InputUtils
-               htmlFor={"password"}
-               labelTitle={"Password"}
+               htmlFor="password"
+               labelTitle="Password"
                errorsName={userPasswordError}
-               id={"password"}
-               type={"password"}
+               id="password"
+               type="password"
                autoComplete="password"
-               placeholder={"Enter your password"}
+               placeholder="Enter your password"
                value={userPassword}
                onChange={(event) => {
                   setUserPassword(event.target.value);
