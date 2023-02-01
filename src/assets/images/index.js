@@ -1,4 +1,4 @@
-import LoginJpg from "./Login.jpg";
-import SignupJpg from "./Signup.jpg";
+import LoginImg from "./login.png";
+import SignupImg from "./signup.png";
 
-export { LoginJpg, SignupJpg };
+export { LoginImg, SignupImg };
