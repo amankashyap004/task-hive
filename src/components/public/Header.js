@@ -1,6 +1,7 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Header() {
    return (
@@ -14,6 +15,9 @@ export default function Header() {
             <Link to="/home">
                <SmallBtn text="Home" />
             </Link>
+            <div className="flex justify-center items-center bg-slate-50 p-1 rounded-full cursor-pointer">
+               <FaUserCircle className="text-2xl" />
+            </div>
          </section>
       </header>
    );
