@@ -1,10 +1,10 @@
 import React from "react";
 import UserProfile from "../../components/public/UserProfile";
 
-export default function UserProfilePage() {
+export default function UserProfilePage(props) {
    return (
-      //   <div className="hidden">
-      <UserProfile />
-      //   </div>
+      <div className={props.display ? "block" : "hidden"}>
+         <UserProfile />
+      </div>
    );
 }

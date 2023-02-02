@@ -9,15 +9,21 @@ import InfoPage from "./pages/public/InfoPage";
 import firebaseApp from "./configs/firebase";
 import UserProfilePage from "./pages/public/UserProfilePage";
 function App() {
+   const [isUserProfile, setIsUserProfile] = React.useState(false);
+   const clickUserIcon = () => {
+      setIsUserProfile(!isUserProfile);
+   };
+
    return (
       <BrowserRouter basename="task-hive">
-         <UserProfilePage />
+         <Header onClick={clickUserIcon} />
+         <UserProfilePage display={isUserProfile} />
          <Routes>
             <Route
                path={`/`}
                element={
                   <div>
-                     <Header />
+                     {/* <Header /> */}
                      <InfoPage />
                   </div>
                }
