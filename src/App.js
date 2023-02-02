@@ -7,9 +7,11 @@ import LoginPage from "./pages/public/LoginPage";
 import SignupPage from "./pages/public/SignupPage";
 import InfoPage from "./pages/public/InfoPage";
 import firebaseApp from "./configs/firebase";
+import UserProfilePage from "./pages/public/UserProfilePage";
 function App() {
    return (
       <BrowserRouter basename="task-hive">
+         <UserProfilePage />
          <Routes>
             <Route
                path={`/`}
