@@ -5,7 +5,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 export default function Header(props) {
    return (
-      <header className="w-full h-15 p-4 bg-slate-900 flex justify-between items-center fixed z-10 md:h-14 md:p-2">
+      <header className="w-full h-15 p-4 bg-slate-900 flex justify-between items-center fixed z-20 md:h-14 md:p-2">
          <div className="ml-4 md:ml-2 sm:ml-2">
             <Link to="/">
                <h1 className="font-bold text-white cursor-pointer">Task Hive</h1>
