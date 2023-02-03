@@ -11,18 +11,24 @@ export default function HeaderPage() {
 
    const auth = getAuth();
    const [userName, setUserName] = useState("");
+   const [userEmail, setUserEmail] = useState("");
    useEffect(() => {
       auth.onAuthStateChanged((user) => {
          if (user) {
             setUserName(user.displayName);
          } else setUserName("");
+         if (user) {
+            setUserEmail(user.email);
+         } else setUserEmail("");
       });
    }, []);
+
+   console.log(userEmail);
 
    return (
       <div>
          <Header onClick={clickUserIcon} />
-         <UserProfilePage display={isUserProfile} userName={userName} />
+         <UserProfilePage display={isUserProfile} userName={userName} userEmail={userEmail} />
       </div>
    );
 }

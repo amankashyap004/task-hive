@@ -70,6 +70,7 @@ export default function Signup() {
             updateProfile(user, {
                displayName: state.fullName,
             });
+            console.log(user);
             navigate("/home");
          } catch (error) {
             console.log(error.message);

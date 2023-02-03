@@ -20,7 +20,7 @@ export default function UserProfile(props) {
                   <p className="font-font-medium">-</p>
                   <p className="font-font-medium">{props.userName}</p>
                   <p className="font-font-medium">-</p>
-                  <p className="font-font-medium text-sm">example@email.com </p>
+                  <p className="font-font-medium text-sm">{props.userEmail}</p>
                </div>
             </div>
             <div className="flex justify-center items-center mt-2">
