@@ -1,7 +1,7 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, deleteUser } from "firebase/auth";
 
 export default function UserProfile(props) {
    const auth = getAuth();
@@ -11,6 +11,18 @@ export default function UserProfile(props) {
       signOut(auth)
          .then(() => {
             // console.log("Sign-out successful.");
+            navigate("/");
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
+
+   const user = auth.currentUser;
+   const handleDelete = () => {
+      deleteUser(user)
+         .then(() => {
+            // console.log("Deleted successful.");
             navigate("/");
          })
          .catch((error) => {
@@ -43,7 +55,9 @@ export default function UserProfile(props) {
                <div onClick={handleClick}>
                   <SmallBtn text="Log out" bgColor="blue" />
                </div>
-               <SmallBtn text="Delete" bgColor="red" />
+               <div onClick={handleDelete}>
+                  <SmallBtn text="Delete" bgColor="red" />
+               </div>
             </div>
          </section>
       </main>
