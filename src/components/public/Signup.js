@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
 import InputUtils from "../../utils/InputUtils";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const initialState = {
    fullName: "",
@@ -66,6 +66,10 @@ export default function Signup() {
          try {
             const auth = getAuth();
             await createUserWithEmailAndPassword(auth, state.email, state.currentPassword);
+            const user = auth.currentUser;
+            updateProfile(user, {
+               displayName: state.fullName,
+            });
             navigate("/home");
          } catch (error) {
             console.log(error.message);

@@ -1,7 +1,7 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
 
-export default function UserProfile() {
+export default function UserProfile(props) {
    return (
       <main className="absolute top-20 right-4 bg-slate-700 px-6 py-6 rounded-md z-10">
          <section className="flex justify-center items-center flex-col">
@@ -18,7 +18,7 @@ export default function UserProfile() {
                </div>
                <div className="text-blue-900 ">
                   <p className="font-font-medium">-</p>
-                  <p className="font-font-medium">Name of user </p>
+                  <p className="font-font-medium">{props.userName}</p>
                   <p className="font-font-medium">-</p>
                   <p className="font-font-medium text-sm">example@email.com </p>
                </div>

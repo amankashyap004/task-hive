@@ -4,7 +4,7 @@ import UserProfile from "../../components/public/UserProfile";
 export default function UserProfilePage(props) {
    return (
       <div className={props.display ? "block" : "hidden"}>
-         <UserProfile />
+         <UserProfile userName={props.userName} />
       </div>
    );
 }
