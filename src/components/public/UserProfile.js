@@ -1,7 +1,23 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
+import { useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
 
 export default function UserProfile(props) {
+   const auth = getAuth();
+   const navigate = useNavigate();
+
+   const handleClick = () => {
+      signOut(auth)
+         .then(() => {
+            // console.log("Sign-out successful.");
+            navigate("/");
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
+
    return (
       <main className="absolute top-20 right-4 bg-slate-700 px-6 py-6 rounded-md z-10">
          <section className="flex justify-center items-center flex-col">
@@ -24,7 +40,9 @@ export default function UserProfile(props) {
                </div>
             </div>
             <div className="flex justify-center items-center mt-2">
-               <SmallBtn text="Log out" bgColor="blue" />
+               <div onClick={handleClick}>
+                  <SmallBtn text="Log out" bgColor="blue" />
+               </div>
                <SmallBtn text="Delete" bgColor="red" />
             </div>
          </section>
