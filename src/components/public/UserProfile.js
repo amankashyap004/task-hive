@@ -17,10 +17,10 @@ export default function UserProfile(props) {
                   <p></p>
                </div>
                <div className="text-blue-900 ">
-                  <p className="font-font-medium">-</p>
-                  <p className="font-font-medium">{props.userName}</p>
-                  <p className="font-font-medium">-</p>
-                  <p className="font-font-medium text-sm">{props.userEmail}</p>
+                  <p className="font-medium text-xs">{props.userId}</p>
+                  <p className="font-medium">{props.userName}</p>
+                  <p className="font-medium">-</p>
+                  <p className="font-medium text-sm">{props.userEmail}</p>
                </div>
             </div>
             <div className="flex justify-center items-center mt-2">

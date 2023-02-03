@@ -10,16 +10,20 @@ export default function HeaderPage() {
    };
 
    const auth = getAuth();
+   const [userId, setUserId] = useState("");
    const [userName, setUserName] = useState("");
    const [userEmail, setUserEmail] = useState("");
    useEffect(() => {
       auth.onAuthStateChanged((user) => {
          if (user) {
+            setUserId(user.uid);
+         } else setUserId("-");
+         if (user) {
             setUserName(user.displayName);
-         } else setUserName("");
+         } else setUserName("-");
          if (user) {
             setUserEmail(user.email);
-         } else setUserEmail("");
+         } else setUserEmail("-");
       });
    }, []);
 
@@ -28,7 +32,12 @@ export default function HeaderPage() {
    return (
       <div>
          <Header onClick={clickUserIcon} />
-         <UserProfilePage display={isUserProfile} userName={userName} userEmail={userEmail} />
+         <UserProfilePage
+            display={isUserProfile}
+            userId={userId}
+            userName={userName}
+            userEmail={userEmail}
+         />
       </div>
    );
 }
