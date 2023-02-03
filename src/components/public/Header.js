@@ -13,7 +13,7 @@ export default function Header(props) {
          </div>
          <section className="mr-4 flex justify-between items-center md:mr-2 sm:mr-1">
             <Link to="/home">
-               <SmallBtn text="Home" />
+               <SmallBtn text="Home" bgColor="blue" />
             </Link>
             <div
                onClick={props.onClick}

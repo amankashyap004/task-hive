@@ -30,10 +30,10 @@ export default function Info() {
          <div className="w-full h-[2px] bg-blue-800 my-2"></div>
          <div className="flex justify-center items-center mt-6 md:mt-4">
             <Link to="/login">
-               <SmallBtn text="Login" />
+               <SmallBtn text="Login" bgColor="blue" />
             </Link>
             <Link to="/signup">
-               <SmallBtn text="signup" />
+               <SmallBtn text="signup" bgColor="blue" />
             </Link>
          </div>
       </section>
