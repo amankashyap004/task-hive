@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LongBtn from "../../utils/LongBtn";
 import InputUtils from "../../utils/InputUtils";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -24,6 +24,8 @@ const initialErrorsState = {
 export default function Signup() {
    const [state, setState] = useState(initialState);
    const [errors, setErrors] = useState(initialErrorsState);
+
+   const navigate = useNavigate();
 
    const handleChange = (event) => {
       setState({ ...state, [event.target.id]: event.target.value });
@@ -64,6 +66,7 @@ export default function Signup() {
          try {
             const auth = getAuth();
             await createUserWithEmailAndPassword(auth, state.email, state.currentPassword);
+            navigate("/home");
          } catch (error) {
             console.log(error.message);
          }
