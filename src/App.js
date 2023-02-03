@@ -1,24 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/public/Header";
+import HeaderPage from "./pages/public/HeaderPage";
 import HomePage from "./pages/public/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/public/LoginPage";
 import SignupPage from "./pages/public/SignupPage";
 import InfoPage from "./pages/public/InfoPage";
 import firebaseApp from "./configs/firebase";
-import UserProfilePage from "./pages/public/UserProfilePage";
-function App() {
-   const [isUserProfile, setIsUserProfile] = React.useState(false);
-   const clickUserIcon = () => {
-      console.log("click");
-      setIsUserProfile(!isUserProfile);
-   };
 
+function App() {
    return (
       <BrowserRouter basename="task-hive">
-         <Header onClick={clickUserIcon} />
-         <UserProfilePage display={isUserProfile} />
+         <HeaderPage />
          <Routes>
             <Route
                path={`/`}
