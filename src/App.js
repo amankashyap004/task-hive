@@ -11,6 +11,7 @@ import UserProfilePage from "./pages/public/UserProfilePage";
 function App() {
    const [isUserProfile, setIsUserProfile] = React.useState(false);
    const clickUserIcon = () => {
+      console.log("click");
       setIsUserProfile(!isUserProfile);
    };
 
@@ -23,7 +24,6 @@ function App() {
                path={`/`}
                element={
                   <div>
-                     {/* <Header /> */}
                      <InfoPage />
                   </div>
                }
@@ -32,7 +32,6 @@ function App() {
                path={`/home`}
                element={
                   <div>
-                     <Header />
                      <HomePage />
                   </div>
                }
@@ -41,7 +40,6 @@ function App() {
                path={`/login`}
                element={
                   <div>
-                     <Header />
                      <LoginPage />
                   </div>
                }
@@ -50,7 +48,6 @@ function App() {
                path={`/signup`}
                element={
                   <div>
-                     <Header />
                      <SignupPage />
                   </div>
                }

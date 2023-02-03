@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../components/public/Header";
 import InputField from "../../components/public/InputField";
 import TodoList from "../../components/public/TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -67,7 +66,6 @@ export default function HomePage() {
    return (
       <main>
          <DragDropContext onDragEnd={onDragEnd}>
-            <Header />
             <section className="relative top-14">
                <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
                <TodoList
