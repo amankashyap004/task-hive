@@ -1,5 +1,6 @@
 import React from "react";
 import SmallBtn from "../../utils/SmallBtn";
+import SmallRedBtn from "../../utils/SmallRedBtn";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser } from "firebase/auth";
 
@@ -53,10 +54,10 @@ export default function UserProfile(props) {
             </div>
             <div className="flex justify-center items-center mt-2">
                <div onClick={handleClick}>
-                  <SmallBtn text="Log out" bgColor="blue" />
+                  <SmallBtn text="Log out" />
                </div>
                <div onClick={handleDelete}>
-                  <SmallBtn text="Delete" bgColor="red" />
+                  <SmallRedBtn text="Delete" />
                </div>
             </div>
          </section>
