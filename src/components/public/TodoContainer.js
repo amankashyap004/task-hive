@@ -3,6 +3,8 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
+import { doc, deleteDoc } from "firebase/firestore";
+import firebaseIns from "../../configs/firebase";
 
 export default function TodoContainer(props) {
    const [edit, setEdit] = useState(false);
@@ -16,7 +18,13 @@ export default function TodoContainer(props) {
       setEdit(false);
    };
 
-   const handleDelete = (id) => {
+   const handleDelete = async (id) => {
+      try {
+         await deleteDoc(doc(firebaseIns.db, "todos", id));
+         console.log("Document successfully deleted!");
+      } catch (e) {
+         console.error("Error removing document: ", e);
+      }
       props.setAllTodo(props.allTodo.filter((todo) => todo.id !== id));
    };
 

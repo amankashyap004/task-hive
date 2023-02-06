@@ -27,6 +27,7 @@ export default function TodoList(props) {
                            isDone={item.isDone}
                            allTodo={props.allTodo}
                            setAllTodo={props.setAllTodo}
+                           handleDelete={props.handleDelete}
                         />
                      ))}
                      {provided.placeholder}
