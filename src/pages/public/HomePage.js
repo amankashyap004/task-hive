@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../../components/public/InputField";
 import TodoList from "../../components/public/TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import firebaseIns from "../../configs/firebase";
 
 export default function HomePage() {
@@ -13,21 +13,33 @@ export default function HomePage() {
    const handleAdd = async (e) => {
       e.preventDefault();
       if (todo) {
-         const td = { id: Date.now(), todo, isDone: false };
-         setAllTodo([...allTodo, td]);
+         const todoData = { todo, isDone: false };
          try {
-            const docRef = await addDoc(collection(firebaseIns.db, "todos"), td);
-            console.log("Document written with ID: ", docRef.id);
-         } catch (e) {
-            console.error("Error adding document: ", e);
+            const docRef = await addDoc(collection(firebaseIns.db, "todos"), todoData);
+            setAllTodo([...allTodo, { id: docRef.id, todo, isDone: false }]);
+         } catch (error) {
+            console.error("Error adding document: ", error);
          }
-      } else {
-         setAllTodo([...allTodo]);
       }
       setTodo("");
    };
 
-   // console.log(allTodo);
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const querySnapshot = await getDocs(collection(firebaseIns.db, "todos"));
+            const todos = [];
+            querySnapshot.forEach((doc) => {
+               todos.push({ id: doc.id, ...doc.data() });
+            });
+            setAllTodo(todos);
+         } catch (error) {
+            console.error("Error getting documents: ", error);
+         }
+      };
+      fetchData();
+   }, []);
+
    const onDragEnd = (result) => {
       const { destination, source } = result;
       // console.log(result);
