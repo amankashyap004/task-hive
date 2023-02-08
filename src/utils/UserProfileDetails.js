@@ -1,20 +1,11 @@
 import React from "react";
 
-export default function UserProfileDetails() {
+export default function UserProfileDetails(props) {
    return (
-      <div>
-         <div className="pr-2 text-blue-900 flex justify-start items-center">
-            <h2 className="font-bold">Your id:</h2>
-            <p className="font-medium text-xs">id name</p>
-         </div>
-         {/* <div className="text-blue-900">
-            <h2 className="font-bold">Name:</h2>
-            <h2 className="font-bold">Phone:</h2>
-            <h2 className="font-bold">Email:</h2>
-            <p className="font-medium">{props.userName}</p>
-            <p className="font-medium">-</p>
-            <p className="font-medium text-sm">{props.userEmail}</p>
-         </div> */}
+      <div className=" flex justify-start items-center">
+         <h3 className="font-bold text-blue-900">{props.heading}</h3>
+         <samp className="pr-1">:</samp>
+         <p className="font-medium text-blue-800">{props.para}</p>
       </div>
    );
 }
