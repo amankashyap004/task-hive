@@ -4,6 +4,7 @@ import SmallRedBtn from "../../utils/SmallRedBtn";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser } from "firebase/auth";
 import UserProfileDetails from "../../utils/UserProfileDetails";
+import { FaRegUser } from "react-icons/fa";
 
 export default function UserProfile(props) {
    const auth = getAuth();
@@ -36,7 +37,9 @@ export default function UserProfile(props) {
       <main className="fixed top-20 right-4 bg-slate-700 px-6 py-6 rounded-md z-10 md:top-16 md:right-2 md:p-3">
          <section className="flex justify-center items-center flex-col">
             <div className="bg-blue-100 rounded-full flex justify-center items-center h-[6rem] w-[6rem]">
-               <h1 className="text-[4rem] uppercase font-medium">A</h1>
+               <h1 className="text-[3rem] uppercase font-medium">
+                  <FaRegUser />
+               </h1>
             </div>
             <div className="py-4 px-6 my-4 flex justify-start items-start flex-col bg-sky-200 rounded min-w-[200px] md:p-2">
                <UserProfileDetails heading="Your Id" para={props.userId} />
