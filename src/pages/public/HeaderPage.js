@@ -27,7 +27,7 @@ export default function HeaderPage() {
       });
    }, []);
 
-   console.log(userEmail);
+   // console.log(userEmail);
 
    return (
       <div>

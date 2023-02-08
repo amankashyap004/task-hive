@@ -34,8 +34,8 @@ export default function Login() {
       event.preventDefault();
       const err = validate();
       if (!err) {
-         console.log("User's Email:", userEmail);
-         console.log("User's Password:", userPassword);
+         // console.log("User's Email:", userEmail);
+         // console.log("User's Password:", userPassword);
          const auth = getAuth();
          signInWithEmailAndPassword(auth, userEmail, userPassword)
             .then((userCredential) => {

@@ -70,16 +70,16 @@ export default function Signup() {
             updateProfile(user, {
                displayName: state.fullName,
             });
-            console.log(user);
+            // console.log(user);
             navigate("/home");
          } catch (error) {
             console.log(error.message);
          }
-         console.log("Full Name:", state.fullName);
-         console.log("Email:", state.email);
-         console.log("Phone:", state.phone);
-         console.log("Current Password:", state.currentPassword);
-         console.log("Confirm Password:", state.confirmPassword);
+         // console.log("Full Name:", state.fullName);
+         // console.log("Email:", state.email);
+         // console.log("Phone:", state.phone);
+         // console.log("Current Password:", state.currentPassword);
+         // console.log("Confirm Password:", state.confirmPassword);
          setState(initialState);
          setErrors(initialErrorsState);
       }
