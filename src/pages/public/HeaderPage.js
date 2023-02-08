@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/public/Header";
 import UserProfilePage from "./UserProfilePage";
 import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function HeaderPage() {
    const [isUserProfile, setIsUserProfile] = useState(false);
@@ -10,6 +11,8 @@ export default function HeaderPage() {
    };
 
    const auth = getAuth();
+   const navigate = useNavigate();
+
    const [userId, setUserId] = useState("");
    const [userName, setUserName] = useState("");
    const [userEmail, setUserEmail] = useState("");
@@ -24,6 +27,12 @@ export default function HeaderPage() {
          if (user) {
             setUserEmail(user.email);
          } else setUserEmail("-");
+
+         if (user) {
+            navigate("/home");
+         } else {
+            navigate("/");
+         }
       });
    }, []);
 
