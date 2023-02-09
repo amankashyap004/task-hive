@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/task-hive/static/css/main.bcf5d76f.css",
-    "main.js": "/task-hive/static/js/main.d125fa2b.js",
+    "main.css": "/task-hive/static/css/main.492197e1.css",
+    "main.js": "/task-hive/static/js/main.1dcfccc0.js",
     "static/media/login.png": "/task-hive/static/media/login.3659817fe5a9debb0caa.png",
     "static/media/info.png": "/task-hive/static/media/info.0f6738c0b7412b523880.png",
     "static/media/signup.png": "/task-hive/static/media/signup.6bbae266723937d3ab13.png",
     "index.html": "/task-hive/index.html",
-    "main.bcf5d76f.css.map": "/task-hive/static/css/main.bcf5d76f.css.map",
-    "main.d125fa2b.js.map": "/task-hive/static/js/main.d125fa2b.js.map"
+    "main.492197e1.css.map": "/task-hive/static/css/main.492197e1.css.map",
+    "main.1dcfccc0.js.map": "/task-hive/static/js/main.1dcfccc0.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcf5d76f.css",
-    "static/js/main.d125fa2b.js"
+    "static/css/main.492197e1.css",
+    "static/js/main.1dcfccc0.js"
   ]
 }
