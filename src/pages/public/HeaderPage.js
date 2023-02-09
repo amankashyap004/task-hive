@@ -6,9 +6,28 @@ import { useNavigate } from "react-router-dom";
 
 export default function HeaderPage() {
    const [isUserProfile, setIsUserProfile] = useState(false);
+
    const clickUserIcon = () => {
       setIsUserProfile(!isUserProfile);
    };
+
+   const handleClickOutside = () => {
+      setIsUserProfile(false);
+   };
+
+   const handleWindowScroll = () => {
+      setIsUserProfile(false);
+   };
+
+   useEffect(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+      window.addEventListener("scroll", handleWindowScroll);
+
+      return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+         window.removeEventListener("scroll", handleWindowScroll);
+      };
+   }, []);
 
    const auth = getAuth();
    const navigate = useNavigate();
@@ -16,6 +35,7 @@ export default function HeaderPage() {
    const [userId, setUserId] = useState("");
    const [userName, setUserName] = useState("");
    const [userEmail, setUserEmail] = useState("");
+
    useEffect(() => {
       auth.onAuthStateChanged((user) => {
          if (user) {
@@ -35,8 +55,6 @@ export default function HeaderPage() {
          }
       });
    }, []);
-
-   // console.log(userEmail);
 
    return (
       <div>
