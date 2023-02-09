@@ -24,21 +24,26 @@ export default function HomePage() {
       setTodo("");
    };
 
+   const fetchData = async () => {
+      try {
+         const querySnapshot = await getDocs(collection(firebaseIns.db, "todos"));
+         const todos = [];
+         querySnapshot.forEach((doc) => {
+            todos.push({ id: doc.id, ...doc.data() });
+         });
+         setAllTodo(todos);
+      } catch (error) {
+         console.error("Error getting documents: ", error);
+      }
+   };
+
    useEffect(() => {
-      const fetchData = async () => {
-         try {
-            const querySnapshot = await getDocs(collection(firebaseIns.db, "todos"));
-            const todos = [];
-            querySnapshot.forEach((doc) => {
-               todos.push({ id: doc.id, ...doc.data() });
-            });
-            setAllTodo(todos);
-         } catch (error) {
-            console.error("Error getting documents: ", error);
-         }
-      };
       fetchData();
    }, []);
+
+   useEffect(() => {
+      fetchData();
+   }, [allTodo, completedTodo]);
 
    const onDragEnd = (result) => {
       const { destination, source } = result;

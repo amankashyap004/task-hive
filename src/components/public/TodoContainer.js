@@ -3,8 +3,9 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import firebaseIns from "../../configs/firebase";
+import { async } from "@firebase/util";
 
 export default function TodoContainer(props) {
    const [edit, setEdit] = useState(false);
@@ -28,10 +29,24 @@ export default function TodoContainer(props) {
       props.setAllTodo(props.allTodo.filter((todo) => todo.id !== id));
    };
 
-   const handleDone = (id) => {
-      props.setAllTodo(
-         props.allTodo.map((todo) => (todo.id === id ? { ...todo, isDone: !todo.isDone } : todo))
-      );
+   const handleDone = async (id) => {
+      const activeTodo = props.allTodo;
+      let todo = {};
+      for (let i = 0; i < activeTodo.length; i++) {
+         if (activeTodo[i].id === id) {
+            activeTodo[i].isDone = true;
+            todo = {
+               todo: activeTodo[i].todo,
+               isDone: true,
+            };
+         }
+      }
+      const docRef = doc(firebaseIns.db, "todos", id);
+
+      await updateDoc(docRef, todo);
+
+      props.setAllTodo(activeTodo);
+      console.log(activeTodo);
    };
 
    return (
