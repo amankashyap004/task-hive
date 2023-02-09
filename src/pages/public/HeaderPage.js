@@ -11,23 +11,23 @@ export default function HeaderPage() {
       setIsUserProfile(!isUserProfile);
    };
 
-   const handleClickOutside = () => {
-      setIsUserProfile(false);
-   };
+   // const handleClickOutside = () => {
+   //    setIsUserProfile(false);
+   // };
 
-   const handleWindowScroll = () => {
-      setIsUserProfile(false);
-   };
+   // const handleWindowScroll = () => {
+   //    setIsUserProfile(false);
+   // };
 
-   useEffect(() => {
-      document.addEventListener("mousedown", handleClickOutside);
-      window.addEventListener("scroll", handleWindowScroll);
+   // useEffect(() => {
+   //    document.addEventListener("mousedown", handleClickOutside);
+   //    window.addEventListener("scroll", handleWindowScroll);
 
-      return () => {
-         document.removeEventListener("mousedown", handleClickOutside);
-         window.removeEventListener("scroll", handleWindowScroll);
-      };
-   }, []);
+   //    return () => {
+   //       document.removeEventListener("mousedown", handleClickOutside);
+   //       window.removeEventListener("scroll", handleWindowScroll);
+   //    };
+   // }, []);
 
    const auth = getAuth();
    const navigate = useNavigate();
