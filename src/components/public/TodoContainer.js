@@ -31,22 +31,20 @@ export default function TodoContainer(props) {
 
    const handleDone = async (id) => {
       const activeTodo = props.allTodo;
+      const remActiveTodo = [];
       let todo = {};
       for (let i = 0; i < activeTodo.length; i++) {
          if (activeTodo[i].id === id) {
             activeTodo[i].isDone = true;
-            todo = {
-               todo: activeTodo[i].todo,
-               isDone: true,
-            };
+            todo = activeTodo[i];
+         } else {
+            remActiveTodo.push(activeTodo[i]);
          }
       }
+      props.setAllTodo(remActiveTodo);
+      props.setCompletedTodo((prev) => [...prev, todo]);
       const docRef = doc(firebaseIns.db, "todos", id);
-
       await updateDoc(docRef, todo);
-
-      props.setAllTodo(activeTodo);
-      console.log(activeTodo);
    };
 
    return (
@@ -93,12 +91,14 @@ export default function TodoContainer(props) {
                   >
                      <AiFillDelete />
                   </span>
-                  <span
-                     onClick={() => handleDone(props.id)}
-                     className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400"
-                  >
-                     <MdDone />
-                  </span>
+                  {!props.isDone && (
+                     <span
+                        onClick={() => handleDone(props.id)}
+                        className="cursor-pointer text-xl px-1 active:text-green-200 hover:text-red-400"
+                     >
+                        <MdDone />
+                     </span>
+                  )}
                </div>
             </form>
          )}

@@ -4,6 +4,7 @@ import TodoList from "../../components/public/TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import firebaseIns from "../../configs/firebase";
+import { act } from "react-dom/test-utils";
 
 export default function HomePage() {
    const [todo, setTodo] = useState("");
@@ -27,11 +28,17 @@ export default function HomePage() {
    const fetchData = async () => {
       try {
          const querySnapshot = await getDocs(collection(firebaseIns.db, "todos"));
-         const todos = [];
+         const activeTodo = [];
+         const completedTodo = [];
          querySnapshot.forEach((doc) => {
-            todos.push({ id: doc.id, ...doc.data() });
+            if (doc.data().isDone) {
+               completedTodo.push({ id: doc.id, ...doc.data() });
+            } else {
+               activeTodo.push({ id: doc.id, ...doc.data() });
+            }
          });
-         setAllTodo(todos);
+         setAllTodo(activeTodo);
+         setCompletedTodo(completedTodo);
       } catch (error) {
          console.error("Error getting documents: ", error);
       }
