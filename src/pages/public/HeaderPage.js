@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/public/Header";
 import UserProfilePage from "./UserProfilePage";
 import { getAuth } from "firebase/auth";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function HeaderPage() {
    const [isUserProfile, setIsUserProfile] = useState(false);
@@ -29,7 +29,6 @@ export default function HeaderPage() {
    //    };
    // }, []);
 
-   const location = useLocation();
    const auth = getAuth();
    const navigate = useNavigate();
 
@@ -56,7 +55,7 @@ export default function HeaderPage() {
             navigate("/");
          }
       });
-   }, [location]);
+   }, []);
 
    return (
       <div>
