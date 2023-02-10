@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import firebaseIns from "../../configs/firebase";
-import { async } from "@firebase/util";
 
 export default function TodoContainer(props) {
    const [edit, setEdit] = useState(false);
@@ -65,10 +64,6 @@ export default function TodoContainer(props) {
                      onChange={(e) => setEditTodo(e.target.value)}
                      className="w-[85%] p-2 outline-none rounded bg-transparent border-dashed border-2 border-slate-100 text-base md:text-sm"
                   />
-               ) : props.isDone ? (
-                  <s className="font-bold text-base md:text-sm" type="text">
-                     {props.todo}
-                  </s>
                ) : (
                   <span className="font-bold text-base md:text-sm" type="text">
                      {props.todo}
