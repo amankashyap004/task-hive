@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import InputField from "../../components/public/InputField";
 import TodoList from "../../components/public/TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, setDoc } from "firebase/firestore";
 import firebaseIns from "../../configs/firebase";
-import { act } from "react-dom/test-utils";
 
 export default function HomePage() {
    const [todo, setTodo] = useState("");
@@ -16,7 +15,10 @@ export default function HomePage() {
       if (todo) {
          const todoData = { todo, isDone: false };
          try {
-            const docRef = await addDoc(collection(firebaseIns.db, "todos"), todoData);
+            const docRef = await addDoc(
+               collection(firebaseIns.db, `users/${localStorage.getItem("uid")}/todos`),
+               todoData
+            );
             setAllTodo([...allTodo, { id: docRef.id, todo, isDone: false }]);
          } catch (error) {
             console.error("Error adding document: ", error);
@@ -27,7 +29,9 @@ export default function HomePage() {
 
    const fetchData = async () => {
       try {
-         const querySnapshot = await getDocs(collection(firebaseIns.db, "todos"));
+         const querySnapshot = await getDocs(
+            collection(firebaseIns.db, `users/${localStorage.getItem("uid")}/todos`)
+         );
          const activeTodo = [];
          const completedTodo = [];
          querySnapshot.forEach((doc) => {

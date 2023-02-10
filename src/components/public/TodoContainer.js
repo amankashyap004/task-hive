@@ -21,7 +21,7 @@ export default function TodoContainer(props) {
 
    const handleDelete = async (id) => {
       try {
-         await deleteDoc(doc(firebaseIns.db, "todos", id));
+         await deleteDoc(doc(firebaseIns.db, `users/${localStorage.getItem("uid")}/todos`, id));
          console.log("Document successfully deleted!");
       } catch (e) {
          console.error("Error removing document: ", e);
@@ -43,7 +43,7 @@ export default function TodoContainer(props) {
       }
       props.setAllTodo(remActiveTodo);
       props.setCompletedTodo((prev) => [...prev, todo]);
-      const docRef = doc(firebaseIns.db, "todos", id);
+      const docRef = doc(firebaseIns.db, `users/${localStorage.getItem("uid")}/todos`, id);
       await updateDoc(docRef, todo);
    };
 
