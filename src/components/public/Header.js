@@ -1,5 +1,4 @@
 import React from "react";
-import SmallBtn from "../../utils/SmallBtn";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -12,9 +11,6 @@ export default function Header(props) {
             </Link>
          </div>
          <section className="mr-4 flex justify-between items-center md:mr-2 sm:mr-1">
-            <Link to="/home">
-               <SmallBtn text="Home" bgColor="blue" />
-            </Link>
             <div
                onClick={props.onClick}
                className="flex justify-center items-center bg-slate-50 p-1 rounded-full cursor-pointer"
