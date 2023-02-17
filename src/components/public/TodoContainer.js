@@ -10,11 +10,16 @@ export default function TodoContainer(props) {
    const [edit, setEdit] = useState(false);
    const [editTodo, setEditTodo] = useState(props.todo);
 
-   const handleEdit = (e, id) => {
+   const handleEdit = async (e, id) => {
       e.preventDefault();
-      props.setAllTodo(
-         props.allTodo.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
-      );
+      try {
+         const docRef = doc(firebaseIns.db, `users/${localStorage.getItem("uid")}/todos`, id);
+         await updateDoc(docRef, { todo: editTodo });
+         console.log("Edit successfully");
+      } catch (e) {
+         console.error("Error: ", e);
+      }
+      props.setAllTodo(props.allTodo.filter((todo) => todo.id !== id));
       setEdit(false);
    };
 
