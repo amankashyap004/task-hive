@@ -58,6 +58,8 @@ export default function TodoList(props) {
                            isDone={item.isDone}
                            allTodo={props.completedTodo}
                            setAllTodo={props.setCompletedTodo}
+                           completedTodo={props.completedTodo}
+                           setCompletedTodo={props.setCompletedTodo}
                         />
                      ))}
                      {provided.placeholder}

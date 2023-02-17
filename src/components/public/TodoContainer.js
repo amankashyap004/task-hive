@@ -77,7 +77,8 @@ export default function TodoContainer(props) {
                <div className="flex justify-center items-center">
                   <span
                      onClick={() => {
-                        if (!edit && !props.isDone) {
+                        // if (!edit && !props.isDone) {
+                        if (!edit) {
                            setEdit(!edit);
                         }
                      }}
