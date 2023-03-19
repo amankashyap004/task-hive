@@ -84,7 +84,7 @@ git push origin gh-pages
 
 ## [Demo](https://amankashyap004.github.io/task-hive/)
 
-# 🛠 Skills
+### 🛠 Skills
 
 **HTML**, **CSS**, **JavaScript**, **React**, **Tailwind CSS**, **Firebase** ...
 
