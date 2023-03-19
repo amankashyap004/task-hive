@@ -82,9 +82,11 @@ git push origin gh-pages
 
 9. Your Task Hive project is now live at **'https://yourusername.github.io/yourrepositoryname/'**.
 
+##
+
 ## [Demo](https://amankashyap004.github.io/task-hive/)
 
-### 🛠 Skills
+## 🛠 Skills
 
 **HTML**, **CSS**, **JavaScript**, **React**, **Tailwind CSS**, **Firebase** ...
 
