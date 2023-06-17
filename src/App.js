@@ -13,38 +13,10 @@ function App() {
       <BrowserRouter basename="task-hive">
          <HeaderPage />
          <Routes>
-            <Route
-               path={`/`}
-               element={
-                  <div>
-                     <InfoPage />
-                  </div>
-               }
-            />
-            <Route
-               path={`/home`}
-               element={
-                  <div>
-                     <HomePage />
-                  </div>
-               }
-            />
-            <Route
-               path={`/login`}
-               element={
-                  <div>
-                     <LoginPage />
-                  </div>
-               }
-            />
-            <Route
-               path={`/signup`}
-               element={
-                  <div>
-                     <SignupPage />
-                  </div>
-               }
-            />
+            <Route path={`/`} element={<InfoPage />} />
+            <Route path={`/home`} element={<HomePage />} />
+            <Route path={`/login`} element={<LoginPage />} />
+            <Route path={`/signup`} element={<SignupPage />} />
          </Routes>
       </BrowserRouter>
    );
